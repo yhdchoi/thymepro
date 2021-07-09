@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<header class="p-3 bg-dark text-white">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a href="/"
+        class="d-flex align-items-center me-4 mb-2 mb-lg-0 text-white fs-4 text-decoration-none">
+        DaBlog
+      </a>
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li>
+          <a href="#" class="nav-link px-2 text-info">About</a>
+        </li>
+        <li>
+          <a href="/board/list" class="nav-link px-2 text-success fw-bold">Board</a>
+        </li>
+        <li>
+          <a href="#" class="nav-link px-2 text-warning">Contact</a>
+        </li>
+      </ul>
+
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+        <input type="search" class="form-control form-control-dark" placeholder="Search..."
+          aria-label="Search">
+      </form>
+
+      <!-- logged out -->
+      <div class="text-end">
+        <button type="button" class="btn btn-outline-primary me-2">Login</button>
+        <button type="button" class="btn btn-danger">Sign-up</button>
+      </div>
+
+      <!-- logged in -->
+      <!-- <div class="text-end">
+        <button type="button" class="btn btn-outline-light me-2">Logout</button>
+      </div> -->
+
+
+      <!-- <div class="dropdown">
+          <a href="#"
+            class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+            id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="" width="32" height="32"
+              class="rounded-circle me-2">
+            <strong>ADMIN</strong>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-small shadow"
+            aria-labelledby="dropdownUser">
+            <li>
+              <a class="dropdown-item" th:href="@{/user/profile}"> 마이 펫 </a>
+            </li>
+            <li>
+              <a class="dropdown-item" th:href="@{/user/dashboard}"> 대쉬보드 </a>
+            </li>
+            <li>
+              <a class="dropdown-item" th:href="@{/user/settings}"> 설정 </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">로그아웃</a>
+            </li>
+          </ul>
+        </div> -->
+
+    </div>
+  </div>
+</header>
