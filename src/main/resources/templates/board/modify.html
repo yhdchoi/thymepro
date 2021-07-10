@@ -7,7 +7,7 @@
     <div class="container mt-4">
       <h1 class="text-center">MODIFY</h1>
 
-      <form action="/board/modify" method="post">
+      <form th:action="@{/board/modify}" th:method="post">
       
         <input type="hidden" name="page" th:value="${requestDTO.page}" />
         <input type="hidden" name="type" th:value="${requestDTO.type}" />
@@ -96,7 +96,7 @@
 
                 actionForm.submit();
             });
-
+            
         </script>  
 
   </th:block>

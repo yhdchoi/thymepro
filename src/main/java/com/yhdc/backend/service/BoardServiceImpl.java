@@ -67,7 +67,7 @@ public class BoardServiceImpl implements BoardService {
 	@Transactional
 	@Override
 	public void removeWithReplies(Long bno) {
-//		commentRepository.deleteByBoardId(bno);
+		commentRepository.deleteByBno(bno);
 		boardRepository.deleteById(bno);
 	}
 
