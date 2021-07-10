@@ -32,6 +32,11 @@ public class BoardController {
 		model.addAttribute("result", boardService.getList(pageRequestDTO));
 	}
 	
+	@GetMapping("/register")
+	public void register() {
+		log.info("register get...");
+	}
+	
 	
 	@PostMapping("/register")
 	public String registerPost(BoardDTO dto, RedirectAttributes redirectAttributes) {

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:replace="~{/basic :: setContent(~{this::content} )}">
+  <th:block th:fragment="content">
+
+    <div class="container mt-4">
+      <h1 class="text-center">MODIFY</h1>
+
+      <form action="/board/modify" method="post">
+      
+        <input type="hidden" name="page" th:value="${requestDTO.page}" />
+        <input type="hidden" name="type" th:value="${requestDTO.type}" />
+        <input type="hidden" name="keyword" th:value="${requestDTO.keyword}" />
+        
+        <div class="form-group">
+          <label> Board#: </label>
+          <input type="text" class="form-control" name="bno" th:value="${dto.bno}" readonly />
+        </div>
+        
+        <div class="form-group mt-2">
+          <label> Title: </label>
+          <input type="text" class="form-control" name="title" th:value="${dto.title}" />
+        </div>
+        
+        <div class="form-group mt-2">
+          <label> Content: </label>
+          <textarea class="form-control" name="content" rows="10"> [[${dto.content}]] </textarea>
+        </div>
+        
+        <div class="form-group mt-2">
+          <label> Writer: </label>
+          <input type="text" class="form-control" name="writer" th:value="${dto.writerUsername}" readonly />
+        </div>
+        
+        <div class="form-group mt-2">
+          <label> Written on: </label>
+          <input type="text" class="form-control" th:value="${#temporals.format(dto.regDate, 'yyyy/MM/dd HH:mm')}" readonly />
+        </div>
+      
+        <div class="form-group mt-2">
+          <label> Modified on: </label>
+          <input type="text" class="form-control" th:value="${#temporals.format(dto.modDate, 'yyyy/MM/dd HH:mm')}" readonly />
+        </div>
+        
+      </form>
+      
+      <button type="button" class="btn btn-primary mt-4 me-2 modifyBtn"> Save </button>
+      <button type="button" class="btn btn-success mt-4 me-2 listBtn"> List </button>
+      <button type="button" class="btn btn-danger mt-4 removeBtn"> Delete </button>
+      
+    </div>
+    
+      <script th:inline="javascript">
+
+            let actionForm = $("form");
+
+            $(".removeBtn").click(()=>{
+
+                actionForm
+                .attr("action", "/board/remove")
+                .attr("method", "post")
+
+                actionForm.submit();
+
+            });
+
+            $(".modifyBtn").click(()=>{
+
+                if(!confirm("수정하시겠습니까?")){
+                    return ;
+                }
+
+                actionForm
+                .attr("action", "/board/modify")
+                .attr("method", "post")
+                .submit();
+
+            });
+
+            $(".listBtn").click(()=>{
+
+                let page = $("input[name='page']");
+                let type = $("input[name='type']");
+                let keyword = $("input[name='keyword']");
+
+                actionForm.empty();
+
+                actionForm.append(page);
+                actionForm.append(type);
+                actionForm.append(keyword);
+
+                actionForm
+                .attr("action", "/board/list")
+                .attr("method", "get");
+
+                actionForm.submit();
+            });
+
+        </script>  
+
+  </th:block>
+</th:block>

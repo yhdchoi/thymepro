@@ -4,7 +4,7 @@
 <header class="p-3 bg-dark text-white">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-      <a href="/"
+      <a th:href="@{/}"
         class="d-flex align-items-center me-4 mb-2 mb-lg-0 text-white fs-4 text-decoration-none">
         DaBlog
       </a>
@@ -14,7 +14,10 @@
           <a href="#" class="nav-link px-2 text-info">About</a>
         </li>
         <li>
-          <a href="/board/list" class="nav-link px-2 text-success fw-bold">Board</a>
+          <a th:href="@{/board/list}" class="nav-link px-2 text-success fw-bold">Board</a>
+        </li>
+        <li>
+          <a th:href="@{/board/register}" class="nav-link px-2 text-primary fw-bold">Write</a>
         </li>
         <li>
           <a href="#" class="nav-link px-2 text-warning">Contact</a>
@@ -28,8 +31,12 @@
 
       <!-- logged out -->
       <div class="text-end">
-        <button type="button" class="btn btn-outline-primary me-2">Login</button>
+      <a href="#">
+        <button type="button" class="btn btn-outline-primary me-2">Login</button>      
+      </a>
+      <a href="#">
         <button type="button" class="btn btn-danger">Sign-up</button>
+      </a>
       </div>
 
       <!-- logged in -->
