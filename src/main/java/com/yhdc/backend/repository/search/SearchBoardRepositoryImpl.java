@@ -29,7 +29,8 @@ public class SearchBoardRepositoryImpl extends QuerydslRepositorySupport impleme
 	public SearchBoardRepositoryImpl() {
 		super(Board.class);
 	}
-
+	
+	// FOR TEST
 	@Override
 	public Board search1() {
 		log.info("search1............");
@@ -58,6 +59,7 @@ public class SearchBoardRepositoryImpl extends QuerydslRepositorySupport impleme
 		return null;
 	}
 
+	// SEARCH LIST
 	@Override
 	public Page<Object[]> searchPage(String type, String keyword, Pageable pageable) {
 		log.info("searchPage ------------------");
@@ -86,14 +88,15 @@ public class SearchBoardRepositoryImpl extends QuerydslRepositorySupport impleme
 				case "t":
 					conditionBuilder.or(board.title.contains(keyword));
 					break;
+					
+				case "c":
+					conditionBuilder.or(board.content.contains(keyword));
+					break;
 
 				case "w":
 					conditionBuilder.or(member.username.contains(keyword));
 					break;
 
-				case "c":
-					conditionBuilder.or(board.content.contains(keyword));
-					break;
 				}
 			}
 			booleanBuilder.and(conditionBuilder);
